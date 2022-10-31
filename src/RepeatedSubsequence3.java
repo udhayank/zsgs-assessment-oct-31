@@ -45,11 +45,27 @@ public class RepeatedSubsequence3 {
 	}
 	
 	private boolean containsSequence(String a, String str) {
-		// generate all possible subsequences of given substring str and match it to staring a
+		// search character by character in str to match sequence of a
 
 		int len = a.length();
+		int index = -1;
+		boolean isMatch = true;
 				
-		for ()
+		for (int i=0; i<len; i++) {
+			str = str.substring(index+1);
+//			System.out.println(i + " - " + str);
+			index = str.indexOf(a.charAt(i));
+			if (index == -1) {
+				isMatch = false;
+				break;
+			}
+		}
+		
+		if (isMatch) {
+//			System.out.println(a);
+			res.add(a);
+			return true;
+		}
 		
 		return false;
 		
